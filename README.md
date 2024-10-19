@@ -7,12 +7,15 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/soft-prompt-generation-for-domain/domain-generalization-on-domainnet)](https://paperswithcode.com/sota/domain-generalization-on-domainnet?p=soft-prompt-generation-for-domain)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2404.19286v2-b31b1b.svg)](https://arxiv.org/abs/2404.19286v2)
+<a href="https://zhuanlan.zhihu.com/p/719329220"><img src="https://img.shields.io/badge/Chinese Interpretation-blue?logo=zhihu&logoColor=blue&label=zhihu&labelColor=white&color=blue"></a>
+<!-- 
 ![GitHub stars](https://img.shields.io/github/stars/renytek13/Soft-Prompt-Generation-with-CGAN)
 ![GitHub forks](https://img.shields.io/github/forks/renytek13/Soft-Prompt-Generation-with-CGAN)
+-->
 
 Official implementation of the paper "[Soft Prompt Generation for Domain Generalization](https://arxiv.org/abs/2404.19286)".
 
-Authors: [Shuanghao Bai*](https://scholar.google.com/citations?user=xhd94DIAAAAJ&hl=zh-CN), Yuedi Zhang*, [Wanqi Zhou](https://scholar.google.com/citations?user=3Q_3PR8AAAAJ&hl=zh-CN), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
+Authors: [Shuanghao Bai*](https://baishuanghao.github.io/), Yuedi Zhang*, [Wanqi Zhou](https://ellezwq.github.io/), [Zhirong Luan](https://scholar.google.com/citations?user=mJNCeucAAAAJ&hl=zh-CN), [Badong Chen](https://scholar.google.com/citations?user=mq6tPX4AAAAJ&hl=zh-CN&oi=ao).
 
 <hr />
 
@@ -92,7 +95,9 @@ Make sure you **modify the path in `$DATA`**!
 
 ### Training Stage I: Domain Prompt Labels Learning (Optional)
 
-If you wanna use our produced [data splits](datasets) and [domain prompt labels](prompt_labels). Please go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
+**We provid our dataset split files [spg_coop_splits](https://drive.google.com/drive/folders/1sa7FNaWgs_8Eh4JMO1GZtTUMXqcFRirK?usp=drive_link) and the trained [domain prompt labels](https://drive.google.com/drive/folders/1-2UvAUAhwH4LPHiWPUrtUreRpXU7goY3?usp=drive_link).** 
+
+If you wanna use our produced data splits and domain prompt labels, please put split files into the dataset directory (follow [DATASETS.md](DATASETS.md)) and put domain prompt labels in [domain prompt labels](prompt_labels). Then go to the [Training Stage II: Generative Model Pre-training](#training-stage-II-generative-model-pre-training)
 
 <details>
   
@@ -109,7 +114,7 @@ bash scripts/spg_coop/spg_coop.sh pacs RN50 0
 
 
 ### Training Stage II: Generative Model Pre-training
-Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path. The bash files of Three types of DG tasks in [scripts folder](scripts/spg_cgan).
+Please refer to [DATASETS.md](DATASETS.md), and make sure that our produced [data splits](datasets) are in your data path. The bash files of three types of DG tasks in [scripts folder](scripts/spg_cgan).
 
 For multi-source Domain Generalization
 ```bash
@@ -132,6 +137,7 @@ bash scripts/spg_cgan/cross.sh spg ViT-B/16 2
 
 ### Evaluation
 For multi-source Domain Generalization
+
 ```bash
 # Example: test PACS dataset with ResNet50 as the backbone, and the gpu id is 0. 
 bash scripts/test_all.sh pacs spg RN50 0
@@ -146,14 +152,16 @@ Supported methods in this codespace are as follows:
 | CoOp                      | [IJCV 2022](https://arxiv.org/abs/2109.01134)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |
 | CoCoOp                    | [CVPR 2022](https://arxiv.org/abs/2203.05557)  |  [link](https://github.com/KaiyangZhou/CoOp)                         |
 | VP                        | [-](https://arxiv.org/abs/2203.17274)          |  [link](https://github.com/hjbahng/visual_prompting)                 | 
-| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.17274)  |  [link](https://github.com/KMnP/vpt)                                 | 
+| VPT                       | [ECCV 2022](https://arxiv.org/abs/2203.12119)  |  [link](https://github.com/KMnP/vpt)                                 | 
 | MaPLe                     | [CVPR 2023](https://arxiv.org/abs/2210.03117)  |  [link](https://github.com/muzairkhattak/multimodal-prompt-learning) | 
 | DPL                       | [TJSAI 2023](https://arxiv.org/abs/2111.12853) |  [link](https://github.com/shogi880/DPLCLIP)                         |
+
+Also, for our SPG method, we provide our **[pre-trained models](https://drive.google.com/drive/folders/1MxBV9fD0eNVhnxdxhbhlhlmugXyCNueC?usp=drive_link)** on five DG datasets and you can directly evaluate on those models.
 
 
 ## 📝 Citation
 
-If our code is helpful to your research or projects, please consider citing our work! 🥰 
+If our code is helpful to your research or projects, please consider citing our work!  
 
 ```bibtex
 @inproceedings{bai2024soft,
@@ -166,7 +174,7 @@ If our code is helpful to your research or projects, please consider citing our 
 
 ## 📨 Contact
 
-If you have any questions, please create an issue on this repository or contact us at baishuanghao@stu.xjtu.edu.cn or zyd993@stu.xjtu.edu.cn.
+If you have any questions, please create an issue on this repository or contact us at zyd993@stu.xjtu.edu.cn or baishuanghao@stu.xjtu.edu.cn.
 
 
 ## 🙏 Acknowledgements
